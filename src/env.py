@@ -1,5 +1,9 @@
+'''Environment variables for the application.'''
+
 from os import path
 
-ENV = 'dev'
 BASE_PATH = path.dirname(path.abspath(__file__))
-CONFIG_PATH = path.join(BASE_PATH, f'{ENV}.env.json')
+
+def config_path(env):
+    ''' Returns the path to the config file for the given environment. '''
+    return path.join(BASE_PATH, f'{env}.env.json')
