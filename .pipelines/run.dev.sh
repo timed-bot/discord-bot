@@ -6,7 +6,7 @@ PID_FILE="app.pid"
 # Function to start the app
 start_app() {
     # Start your application here & write its PID to a file
-    python3.11 -m pipenv run ./../src/start.py dev &
+    python ./../src/start.py dev &
     echo $! > "$PID_FILE"
 }
 
