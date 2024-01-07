@@ -6,11 +6,11 @@ PID_FILE="app.pid"
 # Function to start the app
 start_app() {
     # Start your application here & write its PID to a file
-    python -m pip install pipenv
-    python -m pipenv install
-    python -m pipenv run py -m pylint --recursive=y ./src
+    python3.11 -m pip install pipenv
+    python3.11 -m pipenv install
+    python3.11 -m pipenv run py -m pylint --recursive=y ./src
 
-    python -m pipenv run py ./src/start.py dev &
+    python3.11 -m pipenv run py ./src/start.py dev &
     echo $! > "$PID_FILE"
 }
 
