@@ -18,6 +18,3 @@ class GlobalConfigService(object):
         with open(self.file_path, encoding='UTF-8') as file:
             data = json.load(file)
             return data.get('bot_token')
-    
-    
-    
