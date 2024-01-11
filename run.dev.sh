@@ -1,5 +1,5 @@
-docker rmi dev -f
-docker image prune -f
-docker container prune -f
-docker build -t dev .
-docker run dev
+sudo docker rmi dev -f
+sudo docker image prune -f
+sudo docker container prune -f
+sudo docker build -t dev .
+sudo docker run dev
