@@ -1,5 +1,6 @@
 from discord import Interaction
 from discord.ext.commands import Context
+from data.views.test_view import TestView
 
 
 async def test(interaction: Interaction):
@@ -22,3 +23,10 @@ async def stop(interaction: Interaction):
     '''
     await interaction.response.send_message('Stopping...')
     await interaction.client.close()
+
+
+async def button_dev(interaction: Interaction):
+    '''
+    A simple button command.
+    '''
+    await interaction.response.send_message("Click the button to enter text:", view=TestView())
