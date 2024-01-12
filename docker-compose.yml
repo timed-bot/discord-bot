@@ -1,0 +1,22 @@
+services:
+
+  # db:
+  #   image: postgres:alpine
+  #   hostname: db
+  #   ports:
+  #     - 5435:5432
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: 123pswd
+  #     POSTGRES_DB: analytics
+
+  bot-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    hostname: bot
+    # depends_on:
+    #   - db
+    # links:
+    #   - "db:database"
