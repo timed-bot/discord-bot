@@ -1,5 +1,5 @@
-docker rmi dev -f
+docker-compose stop bot-dev 
+docker-compose rm -f -s -v
+docker-compose build bot-dev --no-cache 
 docker image prune -f
-docker container prune -f
-docker build -t dev .
-docker run dev
+docker-compose up bot-dev -d
