@@ -2,7 +2,7 @@ import inject
 
 from discord.ext.commands import Bot, Context
 from discord import Interaction
-from data import commands
+from ui import commands
 from services.global_config import GlobalConfigService
 from . import testing
 from . import bot_events

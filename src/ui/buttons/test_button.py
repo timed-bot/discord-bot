@@ -1,6 +1,6 @@
 from discord.ui import Button
 from discord import Interaction, ButtonStyle
-from data.modals.test_modal import TestModal
+from ui.modals.test_modal import TestModal
 
 
 class TestButton(Button):

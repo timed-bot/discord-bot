@@ -1,6 +1,6 @@
 from discord import Interaction
 from discord.ext.commands import Context
-from data.views.test_view import TestView
+from ui.views.test_view import TestView
 
 
 async def test(interaction: Interaction):

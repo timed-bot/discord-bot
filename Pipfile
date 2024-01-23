@@ -8,5 +8,11 @@ name = "pypi"
 pylint = "*"
 autopep8 = "*"
 inject = "*"
+apscheduler = "*"
+motor = "*"
+pymongo = "*"
+redis = "*"
+dataclasses-json = "*"
+aredis = "*"
 
 [dev-packages]

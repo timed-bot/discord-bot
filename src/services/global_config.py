@@ -6,8 +6,11 @@ import json
 from typing import Dict, Literal
 from os import path
 
+from helpers import singleton
 
-class GlobalConfigService(object):
+
+@singleton
+class GlobalConfigService():
     '''
     This class is responsible for reading the global config file and returning the bot token.
     '''
@@ -38,6 +41,27 @@ class GlobalConfigService(object):
         Returns the default prefix from the config file.
         '''
         return self.__data.get('bot_prefix', '>')
+
+    @property
+    def mongo_connstring(self):
+        '''
+        Returns the default prefix from the config file.
+        '''
+        return self.__data['mongo_connstring']
+
+    @property
+    def redis_host(self):
+        '''
+        Returns the default prefix from the config file.
+        '''
+        return self.__data['redis_host']
+
+    @property
+    def redis_port(self):
+        '''
+        Returns the default prefix from the config file.
+        '''
+        return self.__data['redis_port']
 
     @property
     def data(self):

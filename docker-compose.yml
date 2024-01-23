@@ -1,21 +1,43 @@
 services:
-
-  # db:
-  #   image: postgres:alpine
-  #   hostname: db
-  #   ports:
-  #     - 5435:5432
-  #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: 123pswd
-  #     POSTGRES_DB: analytics
-
   bot-dev:
     build:
       context: .
       dockerfile: Dockerfile
       target: dev
-    # depends_on:
-    #   - db
-    # links:
-    #   - "db:database"
+    depends_on:
+      - mongo-dev
+      - redis-dev
+    links:
+      - "mongo-dev:database"
+      - "redis-dev:redis"
+
+  redis-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: redis-dev
+    hostname: redis-dev
+    ports:
+      - "6379:6379"
+    # volumes:
+    #   - ./redis.conf:/usr/local/etc/redis/redis.conf # Mount the custom config file
+
+  mongo-dev:
+    image: mongo
+    ports:
+      - "27017:27017"
+    hostname: mongo-dev
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - ./__data/db:/data/db
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_SERVER: mongo

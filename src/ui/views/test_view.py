@@ -1,6 +1,6 @@
 from discord.ui import View
 from discord import ButtonStyle
-from data.buttons.test_button import TestButton
+from ui.buttons.test_button import TestButton
 
 
 class TestView(View):

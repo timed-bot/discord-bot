@@ -2,3 +2,4 @@ __pycache__
 .vscode
 prod.env.json
 dev.env.json
+__data
