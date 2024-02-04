@@ -37,6 +37,8 @@ if %rebuild%==true (
 :: Function to start containers without rebuilding
 if %start%==true (
     echo Starting discord-bot containers without rebuilding...
+    docker-compose stop bot-dev
+    docker-compose up --build bot-dev -d
     docker-compose start bot-dev
     goto end
 )
