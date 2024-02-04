@@ -6,6 +6,7 @@ from ui import commands
 from services.global_config import GlobalConfigService
 from . import testing
 from . import bot_events
+from . import time_bot
 
 
 def register_handlers(bot: Bot):
@@ -32,6 +33,10 @@ def register_handlers(bot: Bot):
         A simple ping command.
         '''
         await testing.ping(ctx)
+
+    @bot.command(name=commands.TIMEBOT)
+    async def timebot(ctx):
+        await time_bot.timebot(ctx)
 
     if globalConfigService.env == 'dev':
         @bot.tree.command(name=commands.TEST, description='A simple test command.')
